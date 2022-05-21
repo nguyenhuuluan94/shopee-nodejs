@@ -8,7 +8,7 @@ const userRoute = require("./routes/user.route");
 mongoose
     .connect(process.env.MONGODB_URI || "mongodb://localhost/shopee")
     .then(() => console.log("Connect to Mongo"))
-    .catch(() => console.log("Could not connect to Mongo"));
+    .catch((err) => console.log("Could not connect to Mongo", err));
 const app = express();
 app.use(express.json());
 
