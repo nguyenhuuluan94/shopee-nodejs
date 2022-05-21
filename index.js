@@ -6,7 +6,7 @@ const authRoute = require("./routes/auth.route");
 const userRoute = require("./routes/user.route");
 
 mongoose
-    .connect(process.env.MONGODB_URI || "mongodb://localhost/shopee")
+    .connect(process.env.MONGODB_URI || "mongodb://localhost/shopee", {useNewUrlParser: true})
     .then(() => console.log("Connect to Mongo"))
     .catch((err) => console.log("Could not connect to Mongo", err));
 const app = express();
