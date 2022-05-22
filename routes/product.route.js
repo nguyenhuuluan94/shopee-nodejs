@@ -8,12 +8,14 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
+    if (!req.params.id) {
+        return res.status(404).send("Product not found");
+    }
     const product = await Product.findById(req.params.id);
     if (!product) {
         return res.status(404).send("Product not found");
     }
     res.send(product);
 });
-
 
 module.exports = router;
