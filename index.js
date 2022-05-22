@@ -12,8 +12,8 @@ mongoose
     .catch((err) => console.log("Could not connect to Mongo", err));
 const app = express();
 app.use(cors({
-    'allowedHeaders': ['sessionId', 'Content-Type'],
-    'exposedHeaders': ['sessionId'],
+    'allowedHeaders': '*',
+    'exposedHeaders': '*',
     'origin': '*',
     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
     'preflightContinue': false
