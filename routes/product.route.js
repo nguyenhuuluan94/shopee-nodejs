@@ -8,8 +8,8 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:id", async (req, res) => {
-    if (!req.params.id) {
-        return res.status(404).send("Product not found");
+    if (!req.params.id || req.params.id === 'undefined') {
+        return res.status(404).send("Cannot parse product id");
     }
     const product = await Product.findById(req.params.id);
     if (!product) {
