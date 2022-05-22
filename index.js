@@ -11,7 +11,13 @@ mongoose
     .then(() => console.log("Connect to Mongo"))
     .catch((err) => console.log("Could not connect to Mongo", err));
 const app = express();
-app.use(cors());
+app.use(cors({
+    'allowedHeaders': ['sessionId', 'Content-Type'],
+    'exposedHeaders': ['sessionId'],
+    'origin': '*',
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    'preflightContinue': false
+}));
 app.use(express.json());
 
 app.use("/api/products", productRoute);
