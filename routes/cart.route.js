@@ -30,11 +30,6 @@ router.delete("/:id", auth, async (req, res) => {
     if (!carts) {
         return res.status(404).send("Cart item not found");
     }
-    const carts = await Cart.findById(req.params.id);
-    if (!carts) {
-        return res.status(404).send("Cart item not found");
-    }
-
 
     await Cart.findByIdAndDelete(req.params.id);
     res.send(true);
