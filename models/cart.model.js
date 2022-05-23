@@ -4,6 +4,7 @@ const productModule = require('./product.model');
 
 const cartSchema = new mongoose.Schema({
     quantity: Number,
+    color: String,
     product: productModule.productSchema,
     user: userModule.userSchema,
 });

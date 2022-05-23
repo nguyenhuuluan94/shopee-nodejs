@@ -15,6 +15,7 @@ router.post("/", auth, async (req, res) => {
     const cart = new Cart({
         product: product,
         quantity: req.body.quantity,
+        color: req.body.color,
         user: req.user
     });
     await cart.save();
