@@ -15,12 +15,6 @@ userSchema.methods.generateAuthToken = function () {
 
 const UserModel = mongoose.model("User", userSchema);
 
-const users = [{
-    email: "nguyenhuuluan",
-    password: "abc"
-}];
-
-exports.users = users;
 exports.User = UserModel;
 exports.userSchema = userSchema;
 
