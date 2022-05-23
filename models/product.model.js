@@ -12,7 +12,8 @@ const productSchema = new mongoose.Schema({
     combo: String,
     freeShippingValue: String,
     availableNumber: Number,
-    colors: [String]
+    colors: [String],
+    productImage: string
 });
 
 const Product = mongoose.model("Product", productSchema);
