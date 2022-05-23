@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
     freeShippingValue: String,
     availableNumber: Number,
     colors: [String],
-    productImage: string
+    productImage: String
 });
 
 const Product = mongoose.model("Product", productSchema);
