@@ -22,14 +22,16 @@ router.post("/", auth, async (req, res) => {
     res.send(cart);
 });
 
-router.delete("/", auth, async (req, res) => {
-    let carts = await Cart.find({"user.email": req.user.email});
-    const index = carts.findIndex(c => String(c._id) === String(req.body.cartId));
-    if (index === -1) {
-        return res.status(404).send("Cart item does not exist");
+router.delete("/:id", auth, async (req, res) => {
+    if (!req.params.id) {
+        return res.status(404).send("Cannot parse cart id");
+    }
+    const carts = await Cart.findById(req.params.id);
+    if (!carts) {
+        return res.status(404).send("Cart item not found");
     }
 
-    await Cart.findByIdAndDelete(req.body.cartId);
+    await Cart.findByIdAndDelete(req.params.id);
     res.send(true);
 });
 
